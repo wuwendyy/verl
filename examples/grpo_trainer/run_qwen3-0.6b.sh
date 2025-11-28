@@ -30,19 +30,20 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
     actor_rollout_ref.rollout.name=vllm \
     actor_rollout_ref.rollout.mode=async \
-    actor_rollout_ref.rollout.max_num_batched_tokens=16384 \
     actor_rollout_ref.rollout.gpu_memory_utilization=0.6 \
     actor_rollout_ref.rollout.n=5 \
     actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=32 \
-    actor_rollout_ref.ref.fsdp_config.param_offload=True \
+    actor_rollout_ref.ref.fsdp_config.param_offload=False \
     algorithm.use_kl_in_reward=False \
     trainer.critic_warmup=0 \
     trainer.logger='["console","wandb"]' \
     trainer.project_name='verl_grpo_0.6b_deepscaler' \
     trainer.experiment_name='qwen3_0.6b_deepscaler' \
-    trainer.default_local_dir=/data/user_data/wendywu2/checkpoints/verl/verl_grpo_qwen3_0.6b_deepscaler/qwen3_0.6b_deepscaler_A100_80GB_4 \
+    trainer.default_local_dir=/data/user_data/wendywu2/checkpoints/verl/verl_grpo_qwen3_0.6b_deepscaler/qwen3_0.6b_deepscaler_A6000_4_512 \
     trainer.n_gpus_per_node=$GPUS_PER_NODE \
     trainer.nnodes=1 \
     trainer.save_freq=15 \
     trainer.test_freq=15 \
     trainer.total_epochs=10 $@
+
+    #   actor_rollout_ref.rollout.max_num_batched_tokens=16384 \
