@@ -131,7 +131,7 @@ outputs
 .history
 
 # password files
-shared.sh
+my_scripts/shared_private.sh
 
 # wheels
 *.whl

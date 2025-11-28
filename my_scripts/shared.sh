@@ -37,10 +37,18 @@ export NCCL_NET_GDR_LEVEL=2
 export GPUS_PER_NODE=$SLURM_GPUS_ON_NODE
 
 
-# Hugging Face & W&B (override via env or edit here)
-: "${HF_TOKEN:=}"
-: "${WANDB_API_KEY:=}"
-export HF_TOKEN WANDB_API_KEY
+# Try to load secrets from private file (NOT tracked by git)
+PRIVATE_FILE="$(dirname "$0")/shared_private.sh"
+if [ -f "$PRIVATE_FILE" ]; then
+    source "$PRIVATE_FILE"
+fi
+
+# Default values if not provided in private file
+: "${HF_TOKEN:=__HF_TOKEN_NOT_SET__}"
+: "${WANDB_API_KEY:=__WANDB_KEY_NOT_SET__}"
+
+export HF_TOKEN
+export WANDB_API_KEY
 
 ########################################
 # ============ HELPERS =================
