@@ -23,4 +23,4 @@ init_all    # activates venv, logs into HF (if token), configures W&B, prints di
 export VLLM_USE_V1=1
 
 # inside /data/user_data/wendywu2/verl
-bash "$REPO"/examples/grpo_trainer/run_qwen3-8b.sh
+bash "$REPO"/examples/grpo_trainer/run_qwen3-0.6b.sh

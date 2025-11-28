@@ -2,10 +2,10 @@
 set -e
 
 # 1. Create venv (idempotent: safe even if rerun)
-uv venv --python 3.12.5 test
+uv venv --python 3.12.5 .venv
 
 # 2. Activate it
-source test/bin/activate
+source .venv/bin/activate
 
 # 3. Install from requirements.txt
 uv pip install -r /data/user_data/wendywu2/verl/requirements_mine.txt

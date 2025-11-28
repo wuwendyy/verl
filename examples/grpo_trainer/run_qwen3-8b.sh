@@ -38,6 +38,7 @@ python3 -m verl.trainer.main_ppo \
     trainer.logger='["console","wandb"]' \
     trainer.project_name='verl_grpo_8b_deepscaler' \
     trainer.experiment_name='qwen3_8b_function_rm' \
+    trainer.default_local_dir=/data/user_data/wendywu2/checkpoints/verl/verl_grpo_qwen3_8b_deepscaler/qwen3_8b_deepscaler_H100_80GB_1024 \
     trainer.n_gpus_per_node=$SLURM_GPUS_ON_NODE\
     trainer.nnodes=1 \
     trainer.save_freq=20 \
