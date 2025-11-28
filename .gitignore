@@ -131,7 +131,7 @@ outputs
 .history
 
 # password files
-# shared.sh
+shared.sh
 
 # wheels
 *.whl
